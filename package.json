@@ -12,10 +12,12 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "wasm": "wasm-pack build ./soj-wasm --target web",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_aa53435992b36ce"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
+    "@storybook/addon-designs": "^8.1.0",
     "@storybook/addon-essentials": "^8.5.3",
     "@storybook/addon-interactions": "^8.5.3",
     "@storybook/addon-svelte-csf": "^5.0.0-next.23",
@@ -35,5 +37,9 @@
     "typescript": "^5.0.0",
     "vite": "^6.0.0",
     "vite-plugin-wasm-pack": "^0.1.12"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.5",
+    "tailwindcss": "^4.0.5"
   }
 }
