@@ -1,5 +1,6 @@
 <script lang="ts">
     import './footer.css';
+    import SocialMediaButton from './SocialMediaButton.svelte';
   
     interface Props {
       desktop?: boolean;
@@ -31,12 +32,8 @@
         <img src="/agplv3.svg" alt="AGPL 3.0" class="agpl-logo" />
       </div>
       <div class="footer-social">
-        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-btn">
-          <img src="/discord.svg" alt="Discord" class="social-icon" />
-        </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn">
-          <img src="/github.svg" alt="GitHub" class="social-icon" />
-        </a>
+        <SocialMediaButton image_url="/discord.svg" link_to="https://discord.com"/>
+        <SocialMediaButton image_url="/github.svg" link_to="https://github.com/seele-oj"/>
       </div>
     </div>
   </footer>

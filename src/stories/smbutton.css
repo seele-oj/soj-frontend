@@ -1,0 +1,14 @@
+.social-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(245, 245, 245, 0.8);
+    text-decoration: none;
+  }
+  .social-icon {
+    height: 20px;
+    width: 20px;
+  }
+  

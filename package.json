@@ -10,7 +10,7 @@
     "prepare": "svelte-kit sync || echo ''",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "wasm": "wasm-pack build ./soj-wasm --target web",
+    "wasm": "wasm-pack build ./soj-wasm --target web && wasm-pack build ./soj-wasm-api --target web",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=chpt_aa53435992b36ce"

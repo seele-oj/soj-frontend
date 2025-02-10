@@ -1,0 +1,13 @@
+.soj-container {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    padding: 30px;
+    width: calc(100% - 40px);
+    min-height: 500px;
+    border: 1px solid #0B184B;
+    background: rgba(245, 245, 245, 0.80);
+    display: flex;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}

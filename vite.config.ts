@@ -4,5 +4,5 @@ import wasmPack from 'vite-plugin-wasm-pack';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-	plugins: [sveltekit(), wasmPack('./soj-wasm'), tailwindcss()]
+	plugins: [sveltekit(), wasmPack('./soj-wasm'), wasmPack('./soj-wasm-api'), tailwindcss()]
 });

@@ -17,8 +17,8 @@
 </script>
 
 <nav class="navbar">
-    <div class="logo">
-      <img src="/seele-oj-logo_bright.svg" alt="Logo" />
+    <div class="navbar-logo">
+      <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
     </div>
   
     <ul class="nav-items">

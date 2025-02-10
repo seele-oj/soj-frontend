@@ -2,15 +2,18 @@
 
 /* Footer 전체 레이아웃 */
 .footer {
+  position: absolute;
+  left: 0;
   width: 100%;
   height: 274px;
   flex-shrink: 0;
-  background: #2C2C2C;
+  background: #2c2c2c;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* 3개의 Row를 수직으로 고르게 배치 */
   padding: 20px; /* 필요에 따라 여백 조절 */
   box-sizing: border-box;
+  user-select: none;
 }
 
 .footer-row {
@@ -70,17 +73,4 @@
 .footer-social {
   display: flex;
   gap: 20px;
-}
-.social-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(245, 245, 245, 0.8);
-  text-decoration: none;
-}
-.social-icon {
-  height: 20px;
-  width: 20px;
 }
