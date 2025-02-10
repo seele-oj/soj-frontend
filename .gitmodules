@@ -1,3 +1,6 @@
 [submodule "soj-wasm"]
 	path = soj-wasm
 	url = git@github.com:seele-oj/soj-wasm.git
+[submodule "soj-wasm-api"]
+	path = soj-wasm-api
+	url = git@github.com:seele-oj/soj-wasm-api.git
