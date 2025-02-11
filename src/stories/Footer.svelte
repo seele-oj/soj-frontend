@@ -32,7 +32,7 @@
         <img src="/agplv3.svg" alt="AGPL 3.0" class="agpl-logo" />
       </div>
       <div class="footer-social">
-        <SocialMediaButton image_url="/discord.svg" link_to="https://discord.com"/>
+        <SocialMediaButton image_url="/discord.svg" link_to="https://discord.gg/jan4BB96uy"/>
         <SocialMediaButton image_url="/github.svg" link_to="https://github.com/seele-oj"/>
       </div>
     </div>
