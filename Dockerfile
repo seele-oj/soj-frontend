@@ -21,6 +21,8 @@ RUN npm ci
 
 COPY . .
 
+RUN microdnf install -y gcc
+
 RUN npm run wasm
 
 RUN npm run build
