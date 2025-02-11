@@ -18,7 +18,7 @@
     await tick();
 
     setTimeout(async () => {
-      await init(import.meta.env.BASE_URL + 'assets/soj_wasm_api_bg.wasm');
+      await init('/assets/soj_wasm_api_bg.wasm');
       isLoaded = true;
     }, 0);
   });

@@ -3,7 +3,7 @@
   import init, { start_starfield } from 'soj-wasm';
 
   onMount(async () => {
-    await init(import.meta.env.BASE_URL + 'assets/soj_wasm_bg.wasm');
+    await init('/assets/soj_wasm_bg.wasm');
     start_starfield("star-background", 500);
   });
 </script>
