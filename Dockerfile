@@ -1,7 +1,7 @@
 FROM oraclelinux:9-slim AS builder
 
 RUN microdnf update -y && \
-    microdnf install -y curl tar
+    microdnf install -y curl tar which
 
 RUN curl -fsSL https://rpm.nodesource.com/setup_18.x | bash - && \
     microdnf install -y nodejs
