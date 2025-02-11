@@ -1,13 +1,21 @@
 .soj-container {
-    margin-top: 100px;
-    margin-bottom: 30px;
-    margin-left: 20px;
-    padding: 30px;
-    width: calc(100% - 40px);
-    min-height: 500px;
-    border: 1px solid #0B184B;
-    background: rgba(245, 245, 245, 0.80);
-    display: flex;
-    box-sizing: border-box;
-    flex-shrink: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  padding: 30px;
+  width: calc(100% - 20px);
+  min-height: 200px;
+  border: 1px solid var(--border-color);
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  color: var(--btext-color);
+  font-family: "NanumSquare Neo variable";
+  font-style: normal;
+  font-weight: 500;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #0b184b;
+  /* line-height: 50px; */
 }

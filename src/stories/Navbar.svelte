@@ -1,14 +1,16 @@
 <script lang="ts">
     import './navbar.css';
+    import DarkModeToggle from './DarkModeToggle.svelte'
   
     interface Props {
       desktop?: boolean;
       initialIndex?: number;
+      navItems: string[];
+      navItemUrls: string[];
     }
 
-    const { desktop = true, initialIndex = 0 }: Props = $props();
+    const { desktop = true, initialIndex = 0, navItems, navItemUrls }: Props = $props();
 
-    let navItems = ['Home', 'Contests', 'Problems'];
     let activeIndex: number = initialIndex;
 
     function handleClick(idx: number) {
@@ -29,5 +31,9 @@
           </span>
         </li>
       {/each}
+    </ul>
+
+    <ul class="nav-darktoggle">
+      <DarkModeToggle />
     </ul>
 </nav>

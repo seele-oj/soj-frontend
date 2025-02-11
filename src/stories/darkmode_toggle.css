@@ -1,0 +1,47 @@
+@import url("../styles/common/common.css");
+
+.toggle-switch {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .toggle-switch input {
+    display: none;
+  }
+  
+  .toggle-switch label {
+    display: block;
+    width: 60px;
+    height: 34px;
+    background-color: var(--track-color);
+    border-radius: 34px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .toggle-switch label .slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--slider-color);
+    border-radius: 50%;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  /* 슬라이더 내부의 아이콘은 아래 스타일로 중앙 정렬 */
+  .slider .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .toggle-switch input:checked + label .slider {
+    transform: translateX(26px);
+  }
+  

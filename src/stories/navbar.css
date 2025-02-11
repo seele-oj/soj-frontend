@@ -1,4 +1,4 @@
-@import url("./common/common.css");
+@import url("../styles/common/common.css");
 
 .navbar {
   position: fixed;
@@ -67,4 +67,9 @@
   to {
     width: 100%;
   }
+}
+.nav-darktoggle {
+  display: flex;
+  margin-left: auto;
+  margin-right: 2.5rem;
 }
