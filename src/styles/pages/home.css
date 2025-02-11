@@ -2,7 +2,7 @@
   color: var(--htext-color);
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #0b184b;
-  font-family: "NanumSquare Neo variable";
+  font-family: "NanumSquareNeoVariable";
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -92,7 +92,7 @@
   transition: background-position 1s cubic-bezier(0.22, 1, 0.36, 1);
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #0b184b;
-  font-family: "NanumSquare Neo variable";
+  font-family: "NanumSquareNeoVariable";
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -105,7 +105,7 @@
   color: var(--htext-color);
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #0b184b;
-  font-family: "NanumSquare Neo variable";
+  font-family: "NanumSquareNeoVariable";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -159,7 +159,7 @@
   color: var(--htext-color);
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #0b184b;
-  font-family: "NanumSquare Neo variable";
+  font-family: "NanumSquareNeoVariable";
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -172,7 +172,7 @@
   color: var(--htext-color);
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #0b184b;
-  font-family: "NanumSquare Neo variable";
+  font-family: "NanumSquareNeoVariable";
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
