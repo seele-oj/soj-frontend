@@ -9,6 +9,7 @@
   import Footer from "./../stories/Footer.svelte";
   import Container from "./../stories/Container.svelte";
   import { navbarVisible } from "$lib/navbarStore";
+  import init from 'soj-wasm-api'
 
   let isLoaded: boolean = false;
   let isAnimationEnded: boolean = false;
@@ -17,9 +18,8 @@
     await tick();
 
     setTimeout(async () => {
-      const res = await fetch("/soj_wasm_api_bg.wasm");
-      const bytes = await res.arrayBuffer();
-      if (bytes != null) isLoaded = true;
+      await init(import.meta.env.BASE_URL + 'assets/soj_wasm_api_bg.wasm');
+      isLoaded = true;
     }, 0);
   });
 
