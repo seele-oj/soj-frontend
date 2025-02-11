@@ -43,4 +43,4 @@ COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 3000
 
-CMD ["node", "build/index.js"]
+CMD ["node", "build"]
