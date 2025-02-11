@@ -37,10 +37,10 @@ RUN curl -fsSL https://rpm.nodesource.com/setup_18.x | bash - && \
 
 WORKDIR /app
 
-COPY --from=builder /app/.svelte-kit/output/server ./build
+COPY --from=builder /app/build ./build
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 3000
 
-CMD ["node", "build"]
+CMD ["node", "build/index.js"]
