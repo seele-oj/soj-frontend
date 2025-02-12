@@ -5,13 +5,11 @@
   padding: 30px;
   width: calc(100% - 20px);
   min-height: 200px;
-  border: 1px solid var(--border-color);
-  background: var(--background-color);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   flex-shrink: 0;
-  color: var(--btext-color);
+  color: var(--btext-color-white);
   font-family: "NanumSquareNeoVariable";
   font-style: normal;
   font-weight: 500;
