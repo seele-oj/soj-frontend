@@ -101,6 +101,9 @@
 
 /* 모바일 collapse(햄버거) 버튼 - 기본 숨김, 모바일에서 표시 */
 .mobile-menu-button {
+  justify-content: center;
+    align-items: center;
+    text-align: center;
   display: none;
   background: none;
   border: none;
@@ -108,6 +111,8 @@
   background-color: #0b0b0b;
   border: 1px solid #a6adce;
   font-size: 32px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   margin-left: auto;
   margin-right: 37.5px;
@@ -115,7 +120,7 @@
 }
 @media (max-width: 768px) {
   .mobile-menu-button {
-    display: block;
+    display: flex;
   }
 }
 
