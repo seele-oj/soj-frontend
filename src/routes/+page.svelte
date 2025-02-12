@@ -47,7 +47,7 @@
   async function typeTextArray(
     fullText: string,
     updateFn: (arr: string[]) => void,
-    delay: number = 50
+    delay: number = 200
   ) {
     let arr: string[] = [];
     for (let i = 0; i < fullText.length; i++) {
@@ -119,21 +119,17 @@
 {#if isLoaded}
   {#if isAnimationEnded}
     <div class="home-head">
+      <div class="sea-of-quanta is-not-dark-mode">
+        <img src="/sea-of-quanta.png" draggable="false" alt="Background" />
+      </div>
+      <div class="sea-of-quanta is-dark-mode">
+        <img src="/sea-of-quanta-dark.png" draggable="false" alt="Background" />
+      </div>
+      <div class="sea-of-quanta-effect"></div>
       <div class="head-logo">
         <div class="show-small">
-          <div class="is-dark-mode">
-            <div class="home-logo">
-              <img
-                src="/seele-oj-logo_bright.svg"
-                draggable="false"
-                alt="Logo"
-              />
-            </div>
-          </div>
-          <div class="is-not-dark-mode">
-            <div class="home-logo">
-              <img src="/seele-oj-logo_dark.svg" draggable="false" alt="Logo" />
-            </div>
+          <div class="home-logo">
+            <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
           </div>
         </div>
       </div>
@@ -176,7 +172,9 @@
             draggable="false"
             alt="Logo"
           />
-          <div class="seele-oj-title" style="float: right; font-size: 24px;">SeeleOJ</div>
+          <div class="seele-oj-title" style="float: right; font-size: 24px;">
+            SeeleOJ
+          </div>
         </div>
       </div>
     </div>

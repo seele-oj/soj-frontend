@@ -5,6 +5,7 @@
     --background-color: rgba(44, 44, 44, 0.4);
     --background-color2: rgba(44, 44, 44, 0.2);
     --background-color3: rgba(44, 44, 44, 0.8);
+    --background-color4: rgba(10, 10, 10, 0.6);
     --border-color: rgba(11, 24, 75, 0.3);
     --border-color2: rgba(11, 24, 75, 0.3);
     --border-color-inverse: #a6adce;
@@ -27,6 +28,7 @@
     --background-color: rgba(245, 245, 245, 0.9);
     --background-color2: rgba(245, 245, 245, 0.0);
     --background-color3: rgba(245, 245, 245, 0.0);
+    --background-color4: rgba(10, 10, 10, 0.6);
     --border-color: #0b184b;
     --border-color2: #a6adce;
     --border-color-inverse: rgba(11, 24, 75, 0.3);
