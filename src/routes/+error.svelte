@@ -9,7 +9,7 @@
 
 <Background />
 
-<div class="container">
+<div class="error-container">
   <!-- Row1: 왼쪽 열에 404, 오른쪽 열에 NOT, FOUND -->
   <div class="row1">
     <!-- 왼쪽 열: 404 숫자들을 세로로 배치 -->
@@ -44,7 +44,7 @@
   @import url("./../styles/common/common.css");
 
   /* 전체 컨테이너: 전체 화면 고정 및 중앙 정렬 */
-  .container {
+  .error-container {
     position: fixed;
     top: 0;
     left: 0;
