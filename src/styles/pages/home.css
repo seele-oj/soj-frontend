@@ -12,14 +12,15 @@
 
 .sea-of-quanta {
   position: absolute;
-  left: calc((100vw - 950px) / 2);
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
   height: 100%;
   max-width: 1920px;
 }
 
 .sea-of-quanta img {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 @media (max-width: 888px) {
@@ -30,8 +31,8 @@
 }
 @media (min-width: 889px) {
   .sea-of-quanta img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 500px;
   }
 }
 
@@ -78,7 +79,7 @@
 }
 
 .search-bar-container {
-    width: 100%;
+  width: 100%;
 }
 
 .atext1 {
