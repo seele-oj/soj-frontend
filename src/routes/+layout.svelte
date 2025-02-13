@@ -24,15 +24,6 @@
 	});
 </script>
 
-<svelte:head>
-  <style>
-    html, body {
-      max-width: 100vw;
-      overflow-x: hidden;
-    }
-  </style>
-</svelte:head>
-
 {#if $navbarVisible}
 <Navbar navItems={['Home', 'Contests', 'Explore']} navItemUrls={['/', '/contests', '/explore']} />
 {/if}
