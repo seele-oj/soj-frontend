@@ -12,7 +12,7 @@
 
 .sea-of-quanta {
   position: absolute;
-  left: calc((100% - 950px) / 2);
+  left: calc((100vw - 950px) / 2);
   top: 0;
   height: 100%;
   max-width: 1920px;
