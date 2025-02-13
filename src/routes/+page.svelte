@@ -10,6 +10,7 @@
   import Footer from "./../stories/Footer.svelte";
   import Container from "./../stories/Container.svelte";
   import Paragraph from "./../stories/Paragraph.svelte";
+  import SearchBar from "../stories/SearchBar.svelte";
   import { navbarVisible } from "$lib/navbarStore";
   import init from "soj-wasm-api";
 
@@ -120,10 +121,18 @@
   {#if isAnimationEnded}
     <div class="home-head">
       <div class="sea-of-quanta is-not-dark-mode">
-        <img src="/sea-of-quanta.png" draggable="false" alt="Background" />
+        <enhanced:img
+          src="/static/sea-of-quanta.png"
+          draggable="false"
+          alt="Background"
+        />
       </div>
       <div class="sea-of-quanta is-dark-mode">
-        <img src="/sea-of-quanta-dark.png" draggable="false" alt="Background" />
+        <enhanced:img
+          src="/static/sea-of-quanta-dark.png"
+          draggable="false"
+          alt="Background"
+        />
       </div>
       <div class="sea-of-quanta-effect"></div>
       <div class="head-logo">
@@ -134,47 +143,38 @@
         </div>
       </div>
       <!-- 타이핑 애니메이션이 적용되는 영역 -->
-      <div
-        class="atext1"
-        style="top: 50%; left: 50%; transform: translate(-50%,-50%)"
-      >
-        <span>
-          {#each line1 as char, index (index)}
-            <span in:fade>{char}</span>
-          {/each}
-          {#if line1.length !== typing_text1.length}
-            <span class="cursor">|</span>
-          {/if}
-        </span>
-        <br />
-        <span>
-          {#each line2 as char, index (index)}
-            <span in:fade>{char}</span>
-          {/each}
-          {#if line1.length === typing_text1.length && line2.length !== typing_text2.length}
-            <span class="cursor">|</span>
-          {/if}
-        </span>
-        <br />
-        <span>
-          {#each line3 as char, index (index)}
-            <span in:fade>{char}</span>
-          {/each}
-          {#if line1.length === typing_text1.length && line2.length === typing_text2.length && line3.length !== typing_text3.length}
-            <span class="cursor">|</span>
-          {/if}
-        </span>
-        <br /><br />
-        <div class="seele-oj-logo" style="display: table-cell;">
-          <img
-            style="height: auto; width: 30px; float: left; margin-right: 10px;"
-            src="/flowers.svg"
-            draggable="false"
-            alt="Logo"
-          />
-          <div class="seele-oj-title" style="float: right; font-size: 24px;">
-            SeeleOJ
-          </div>
+      <div class="container2">
+        <div class="atext1">
+          <span>
+            {#each line1 as char, index (index)}
+              <span in:fade>{char}</span>
+            {/each}
+            {#if line1.length !== typing_text1.length}
+              <span class="cursor">|</span>
+            {/if}
+          </span>
+          <br />
+          <span>
+            {#each line2 as char, index (index)}
+              <span in:fade>{char}</span>
+            {/each}
+            {#if line1.length === typing_text1.length && line2.length !== typing_text2.length}
+              <span class="cursor">|</span>
+            {/if}
+          </span>
+          <br />
+          <span>
+            {#each line3 as char, index (index)}
+              <span in:fade>{char}</span>
+            {/each}
+            {#if line1.length === typing_text1.length && line2.length === typing_text2.length && line3.length !== typing_text3.length}
+              <span class="cursor">|</span>
+            {/if}
+          </span>
+          <br /><br />
+        </div>
+        <div class="search-bar-container">
+          <SearchBar />
         </div>
       </div>
     </div>

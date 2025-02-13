@@ -22,6 +22,7 @@
   }
 </script>
 
+<div class="notsupp-background"></div>
 <div class="loader" transition:fade={{ delay: 500, duration: 300 }} on:outroend={handleOutroEnd}>
   <img src="/flowers.svg" alt="Logo" draggable="false" class="logo" />
   {#if progress_level == 0}
@@ -37,3 +38,15 @@
     <p class="progress-text">Loading...</p>
   {/if}
 </div>
+
+<style>
+  .notsupp-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    background: linear-gradient(180deg, #192d69 0%, #36457d 100%);
+  }
+</style>

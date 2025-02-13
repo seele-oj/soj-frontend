@@ -1,0 +1,55 @@
+@import url("../styles/common/common.css");
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0;
+}
+
+.search-box {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: rgba(245, 245, 245, 0.9);
+  border: 1px solid #0b184b;
+  border-radius: 20px;
+  padding-right: 10px;
+}
+
+.search-form .focus {
+    border: 1px solid #a6adce;
+}
+
+.search-box input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: none;
+  width: 100%;
+  padding: 12px 0;
+  font-family: "NanumSquareNeoVariable";
+  font-weight: 400;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.search-icon {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50px;
+}
+
+.search-icon img {
+  height: auto;
+  width: 18px;
+}

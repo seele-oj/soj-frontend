@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="63.160255"
+   height="91.291588"
+   viewBox="0 0 63.160255 91.291588"
+   fill="none"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <rect
+     x="1.5525899"
+     y="71.310837"
+     width="10"
+     height="35"
+     transform="rotate(-30)"
+     fill="#000000"
+     id="rect1" />
+  <mask
+     id="mask0_155_65"
+     maskUnits="userSpaceOnUse"
+     x="27"
+     y="41"
+     width="15"
+     height="20">
+    <rect
+       width="5"
+       height="20"
+       transform="matrix(0.866025,-0.5,-0.5,-0.866025,37,60.9807)"
+       fill="#d9d9d9"
+       id="rect2"
+       x="0"
+       y="0" />
+  </mask>
+  <g
+     mask="url(#mask0_155_65)"
+     id="g3">
+    <rect
+       width="14.5774"
+       height="31.801901"
+       transform="matrix(0.695113,0.7189,-0.275029,-0.961436,37.1028,61.1589)"
+       fill="#000000"
+       id="rect3"
+       x="0"
+       y="0" />
+  </g>
+  <mask
+     id="mask1_155_65"
+     maskUnits="userSpaceOnUse"
+     x="31"
+     y="38"
+     width="15"
+     height="21">
+    <rect
+       x="45.660301"
+       y="55.980701"
+       width="5"
+       height="20"
+       transform="rotate(150,45.6603,55.9807)"
+       fill="#d9d9d9"
+       id="rect4" />
+  </mask>
+  <g
+     mask="url(#mask1_155_65)"
+     id="g5">
+    <rect
+       width="14.5774"
+       height="31.801901"
+       transform="matrix(0.275029,0.961436,-0.695113,-0.7189,45.7631,56.1589)"
+       fill="#000000"
+       id="rect5"
+       x="0"
+       y="0" />
+  </g>
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="M 39.2485,4.45508 36.3623,12.1187 43.3254,7.99463 C 47.4673,12.456 50,18.4322 50,25 50,38.8071 38.8071,50 25,50 11.1929,50 0,38.8071 0,25 0,11.1929 11.1929,0 25,0 30.2953,0 35.2061,1.6463 39.2485,4.45508 Z M 40,25 c 0,8.2843 -6.7157,15 -15,15 -8.2843,0 -15,-6.7157 -15,-15 0,-8.2843 6.7157,-15 15,-15 8.2843,0 15,6.7157 15,15 z"
+     fill="#000000"
+     id="path5" />
+</svg>

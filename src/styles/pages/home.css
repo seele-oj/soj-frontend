@@ -5,16 +5,15 @@
   right: 0;
   width: 100%;
   height: 500px;
-  background-color: var(--background-color);
   border-bottom: 1px solid var(--border-color);
 }
 
 .sea-of-quanta {
   position: absolute;
-  left: 0;
+  left: calc((100% - 950px) / 2);
   top: 0;
-  width: 100%;
   height: 100%;
+  max-width: 1920px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -61,6 +60,20 @@
   position: absolute;
   margin-left: 21px;
   margin-top: 15px;
+}
+
+.container2 {
+  position: relative;
+  top: 125px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar-container {
+    width: 100%;
 }
 
 .atext1 {
