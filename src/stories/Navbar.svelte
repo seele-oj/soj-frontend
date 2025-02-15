@@ -1,15 +1,17 @@
 <script lang="ts">
   import "./navbar.css";
   import DarkModeToggle from "./DarkModeToggle.svelte";
+  import { goto } from "$app/navigation";
+  import { fade } from "svelte/transition";
 
   interface Props {
-    desktop?: boolean;
+    back?: string;
     initialIndex?: number;
     navItems: string[];
     navItemUrls: string[];
   }
 
-  export let desktop: boolean = true;
+  export let back: string = "";
   export let initialIndex: number = 0;
   export let navItems: string[] = [];
   export let navItemUrls: string[] = [];
@@ -19,24 +21,31 @@
 
   function handleClick(idx: number) {
     activeIndex = idx;
+    goto(navItemUrls[idx]);
   }
 </script>
 
 <nav class="navbar">
   <!-- 데스크탑/라지 로고 -->
-  <div class="is-dark-mode">
-    <div class="navbar-logo">
-      <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
+  {#if back === ""}
+    <div class="is-dark-mode">
+      <div class="navbar-logo">
+        <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
+      </div>
     </div>
-  </div>
-  <div class="is-not-dark-mode">
-    <div class="navbar-logo show-small">
-      <img src="/seele-oj-logo_dark.svg" draggable="false" alt="Logo" />
+    <div class="is-not-dark-mode">
+      <div class="navbar-logo show-small">
+        <img src="/seele-oj-logo_dark.svg" draggable="false" alt="Logo" />
+      </div>
+      <div class="navbar-logo show-large">
+        <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
+      </div>
     </div>
-    <div class="navbar-logo show-large">
-      <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
-    </div>
-  </div>
+  {:else}
+    <button class="back-button" on:click={() => goto(back)}>
+      <span class="material-icons">arrow_back</span>
+    </button>
+  {/if}
 
   <!-- 데스크탑 메뉴 -->
   <ul class="nav-items">
@@ -67,10 +76,7 @@
     <div class="navbar-logo">
       <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
     </div>
-    <button
-      class="mobile-menu-close"
-      on:click={() => (mobileMenuOpen = false)}
-    >
+    <button class="mobile-menu-close" on:click={() => (mobileMenuOpen = false)}>
       <span class="material-icons">close</span>
     </button>
   </div>

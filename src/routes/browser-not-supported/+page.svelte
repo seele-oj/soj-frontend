@@ -1,6 +1,8 @@
 <script lang="ts">
   import "../../stories/DarkMode.svelte";
   import { onMount } from "svelte";
+  import { navbarVisible } from "$lib/navbarStore";
+  import { apiNeeded } from "$lib/loaderStore";
 
   const STORAGE_KEY = "theme";
   const DARK_PREFERENCE = "(prefers-color-scheme: dark)";
@@ -33,6 +35,8 @@
 
   onMount(() => {
     applyTheme();
+    navbarVisible.set(false);
+    apiNeeded.set(false);
   });
 </script>
 

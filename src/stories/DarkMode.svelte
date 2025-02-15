@@ -6,6 +6,7 @@
     --background-color2: rgba(44, 44, 44, 0.2);
     --background-color3: rgba(44, 44, 44, 0.8);
     --background-color4: rgba(10, 10, 10, 0.6);
+    --background-color5: #0B184B;
     --border-color: rgba(11, 24, 75, 0.3);
     --border-color2: rgba(11, 24, 75, 0.3);
     --border-color-inverse: #a6adce;
@@ -21,6 +22,7 @@
     --htext-color-white: rgba(255, 255, 255, 0.8);
     --htext-color-white-bold: rgba(255, 255, 255, 1.0);
     --htext-color-dark: rgba(0, 0, 0, 0.8);
+    --text-color-grad: linear-gradient(180deg, #F5F5F5 0%, #D9D9D9 100%);
   }
   :global(body.light) {
     --track-color: #ff9e26;
@@ -29,6 +31,7 @@
     --background-color2: rgba(245, 245, 245, 0.0);
     --background-color3: rgba(245, 245, 245, 0.0);
     --background-color4: rgba(10, 10, 10, 0.6);
+    --background-color5: #f5f5f5;
     --border-color: #0b184b;
     --border-color2: #a6adce;
     --border-color-inverse: rgba(11, 24, 75, 0.3);
@@ -44,5 +47,6 @@
     --htext-color-white: rgba(255, 255, 255, 0.8);
     --htext-color-white-bold: rgba(255, 255, 255, 1.0);
     --htext-color-dark: rgba(0, 0, 0, 0.8);
+    --text-color-grad: linear-gradient(180deg, #0b0b0b 0%, #717171 100%);
   }
 </style>

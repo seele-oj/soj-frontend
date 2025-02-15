@@ -1,0 +1,37 @@
+.difficulty {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 10px;
+  height: max-content;
+  width: max-content;
+  border-radius: 20px;
+  background-color: var(--background-color5);
+}
+
+.difficulty img {
+  height: 2rem;
+  width: auto;
+  user-select: none;
+}
+
+.difficulty-text {
+  align-items: end;
+    padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  font-family: "IBM Plex Sans";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background: var(--text-color-grad);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.difficulty-text .digit {
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}

@@ -1,10 +1,18 @@
 <script>
+  import { onMount } from "svelte";
   import Background from "./Background.svelte";
+  import { navbarVisible } from "$lib/navbarStore";
+  import { apiNeeded } from "$lib/loaderStore";
 
   // Back 버튼 클릭 시 이전 페이지로 이동 (또는 원하는 경로로 변경)
   function handleBack() {
     history.back();
   }
+
+  onMount(async () => {
+    navbarVisible.set(false);
+    apiNeeded.set(false);
+  });
 </script>
 
 <Background />

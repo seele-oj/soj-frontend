@@ -2,12 +2,11 @@
   import "./search_bar.css";
 
   interface Props {
-    onSearch?: (query: Event) => void;
+    onSearch?: (query: string) => void;
   }
 
-  let query = "";
-
-  export let onSearch: (query: Event) => void;
+  export let onSearch: (query: string) => void;
+  export let query: string = "";
 
   let isFocus = false;
 
@@ -18,9 +17,13 @@
   function focusOut(event: Event) {
     isFocus = false;
   }
+
+  function onPreSearch(event: CustomEvent) {
+    onSearch(query);
+  }
 </script>
 
-<form on:submit={onSearch} class="search-form">
+<form on:submit={onPreSearch} class="search-form">
   <div class="search-box {isFocus ? "focus" : ""}">
     <div class="search-icon">
       <img src="/search.svg" alt="Search" />
