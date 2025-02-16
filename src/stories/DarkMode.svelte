@@ -2,11 +2,12 @@
   :global(body.dark) {
     --track-color: #2c2c2c;
     --slider-color: #f5f5f5;
-    --background-color: rgba(44, 44, 44, 0.4);
+    --background-color: rgba(44, 44, 44, 0.8);
     --background-color2: rgba(44, 44, 44, 0.2);
     --background-color3: rgba(44, 44, 44, 0.8);
     --background-color4: rgba(10, 10, 10, 0.6);
     --background-color5: #0B184B;
+    --background-color6: rgba(10, 10, 10, 0.8);
     --border-color: rgba(11, 24, 75, 0.3);
     --border-color2: rgba(11, 24, 75, 0.3);
     --border-color-inverse: #a6adce;
@@ -32,6 +33,7 @@
     --background-color3: rgba(245, 245, 245, 0.0);
     --background-color4: rgba(10, 10, 10, 0.6);
     --background-color5: #f5f5f5;
+    --background-color6: #0B184B;
     --border-color: #0b184b;
     --border-color2: #a6adce;
     --border-color-inverse: rgba(11, 24, 75, 0.3);

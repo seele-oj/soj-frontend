@@ -9,7 +9,7 @@
 }
 
 .difficulty img {
-  height: 2.5rem;
+  height: 3.5rem;
   width: auto;
   user-select: none;
 }
@@ -20,7 +20,7 @@
   flex-direction: row;
   text-align: center;
   font-family: "IBM Plex Sans";
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -30,9 +30,10 @@
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.2rem;
   margin-right: 0.5rem;
+  user-select: none;
 }
 
 .difficulty-text .digit {
-  font-size: 0.8rem;
+  font-size: 1.0rem;
   margin-bottom: 0.2rem;
 }

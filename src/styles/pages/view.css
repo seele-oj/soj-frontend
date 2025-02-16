@@ -18,23 +18,21 @@
   line-height: normal;
   text-decoration: none;
   border-bottom: 1px solid var(--border-color);
-  background-color: #0b184b;
+  background-color: var(--background-color6);
 }
 
 .title-bar .title-back-button,
 .title-bar .title-settings {
   -webkit-appearance: none;
   appearance: none;
-  padding: 0;               
+  padding: 0;
   box-sizing: border-box;
-  display: flex;            
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .title-bar .title-back-button {
-  justify-content: center;
-  align-items: center;
   text-align: center;
   background: none;
   border: none;
@@ -69,15 +67,15 @@
 }
 
 .title-bar .problem-title {
-    margin-left: 10px;
-    font-size: 18px;
-    font-weight: 400;
-  }
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
 
 @media (max-width: 768px) {
-    .title-bar .problem-title {
-        display: none;
-    }
+  .title-bar .problem-title {
+    display: none;
+  }
 }
 
 .title-bar .title-diff {
@@ -85,8 +83,6 @@
 }
 
 .title-bar .title-settings {
-  justify-content: center;
-  align-items: center;
   text-align: center;
   background: none;
   border: none;
@@ -99,9 +95,10 @@
   cursor: pointer;
 }
 
+/* 문제 영역 전체 */
 .problem {
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 60px;
   width: 100%;
   height: calc(100% - 60px);
@@ -111,4 +108,236 @@
   font-weight: 400;
   line-height: normal;
   color: var(--btext-color-white);
+  overflow: hidden;
+}
+
+/* split-view: 데스크톱에서는 좌우 분할, 모바일에서는 수직 분할 */
+.problem .split-view {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+/* 좌측, 우측 Column */
+.problem .left-column,
+.problem .right-column {
+  overflow: auto;
+  height: 100%;
+  color: var(--btext-color);
+}
+.problem .left-column {
+  background-color: var(--background-color);
+}
+
+/* 외부 splitter (좌/우) */
+.problem .splitter {
+  width: 20px;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+}
+
+/* 내부 splitter: files / results */
+.code-splitter {
+  height: 20px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  cursor: row-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+}
+
+/* handle 공통 스타일 */
+.handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+  외부 splitter의 handle (vertical)
+  → 거꾸로: 가로 정렬 (flex-direction: row)로, 각 직사각형은 세로로 긴 형태
+*/
+.handle-vertical {
+  flex-direction: row;
+  gap: 3px;
+}
+.handle-vertical .rect {
+  width: 2px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--btext-color);
+}
+
+/* 
+  내부 splitter의 handle (horizontal)
+  → 거꾸로: 세로 정렬 (flex-direction: column)로, 각 직사각형은 가로로 긴 형태
+*/
+.handle-horizontal {
+  flex-direction: column;
+  gap: 3px;
+}
+.handle-horizontal .rect {
+  width: 30px;
+  height: 2px;
+  border-radius: 5px;
+  background-color: var(--btext-color);
+}
+
+/* 파일과 결과 영역 */
+.right-column .code-area {
+  width: 100%;
+  height: calc(100% - 60px);
+}
+.right-column .files,
+.right-column .results {
+  background-color: var(--background-color);
+  overflow: auto;
+}
+
+/* 코드 에디터 스타일 */
+.code-editor {
+  display: flex;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-size: 14px;
+  padding: 5px;
+  overflow: auto;
+  min-height: 100px;
+}
+
+.line-numbers {
+  user-select: none;
+  text-align: right;
+  margin-right: 10px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.code-content {
+  flex: 1;
+  outline: none;
+  white-space: pre;
+}
+
+/* 기타 영역 */
+.right-column .action-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--background-color);
+  height: 60px;
+}
+
+.left-column .description {
+  color: var(--btext-color);
+  font-family: "NanumSquareNeoVariable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.left-column .problem-contents {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.left-column .problem-title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.problem-title .problem-diff {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin-bottom: -15px;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 3.5rem;
+  text-align: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.files .file {
+  width: 100%;
+  height: 100%;
+}
+
+.file .file-title {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 20px;
+  height: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.file .code-block {
+  padding: 10px 10px;
+  overflow: auto;
+  min-height: 100px;
+}
+
+.results .result-title {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 20px;
+  height: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.action-area {
+  padding-right: 10px;
+}
+
+.action-area .right-area {
+  margin-left: auto;
+}
+
+/* 모바일: 수직 분할 */
+@media (max-width: 768px) {
+  .problem .split-view {
+    flex-direction: column;
+  }
+  .problem {
+    height: fit-content;
+  }
+  .problem .left-column,
+  .problem .right-column {
+    width: 100vw !important;
+    height: fit-content;
+  }
+  .problem .left-column {
+    border-bottom: 2px solid var(--border-color);
+  }
+  .files {
+    border-bottom: 2px solid var(--border-color);
+  }
+  .problem .splitter,
+  .code-splitter {
+    display: none;
+  }
 }

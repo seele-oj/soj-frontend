@@ -3,9 +3,11 @@
   
     interface Props {
         name: string;
+        considerDark: boolean;
     }
 
-    const { name }: Props = $props();
+    export let name: string = "";
+    export let considerDark: boolean = false;
 </script>
 
 <div class="head-container">
@@ -15,7 +17,11 @@
       <div class="row3"></div>
     </div>
     <div class="container">
+        {#if considerDark}
+        <div class="head-text2">{name}</div>
+        {:else}
         <div class="head-text">{name}</div>
+        {/if}
         <slot />
     </div>
 </div>

@@ -13,6 +13,19 @@
   color: var(--htext-color-white);
 }
 
+.head-text2 {
+    color: var(--htext-color);
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #0b184b;
+    font-family: "NanumSquareNeoVariable";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    user-select: none;
+    color: var(--htext-color);
+  }
+
 .head-container {
   display: flex;
   align-items: stretch;
