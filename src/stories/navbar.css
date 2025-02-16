@@ -121,7 +121,16 @@
   }
 }
 
-/* 모바일 collapse(햄버거) 버튼 - 기본 숨김, 모바일에서 표시 */
+.mobile-menu-button {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;               
+  box-sizing: border-box;
+  display: flex;            
+  justify-content: center;
+  align-items: center;
+}
+
 .mobile-menu-button {
   justify-content: center;
   align-items: center;

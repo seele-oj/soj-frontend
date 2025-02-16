@@ -21,6 +21,17 @@
   background-color: #0b184b;
 }
 
+.title-bar .title-back-button,
+.title-bar .title-settings {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;               
+  box-sizing: border-box;
+  display: flex;            
+  justify-content: center;
+  align-items: center;
+}
+
 .title-bar .title-back-button {
   justify-content: center;
   align-items: center;
@@ -62,6 +73,12 @@
     font-size: 18px;
     font-weight: 400;
   }
+
+@media (max-width: 768px) {
+    .title-bar .problem-title {
+        display: none;
+    }
+}
 
 .title-bar .title-diff {
   margin-right: 10px;

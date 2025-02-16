@@ -1,22 +1,21 @@
 .difficulty {
   display: flex;
   flex-direction: row;
-  padding: 5px 10px;
+  padding: 0 5px;
   height: max-content;
   width: max-content;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: var(--background-color5);
 }
 
 .difficulty img {
-  height: 2rem;
+  height: 2.5rem;
   width: auto;
   user-select: none;
 }
 
 .difficulty-text {
   align-items: end;
-    padding-left: 10px;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -29,6 +28,8 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 0.2rem;
+  margin-right: 0.5rem;
 }
 
 .difficulty-text .digit {
