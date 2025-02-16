@@ -323,7 +323,7 @@
     flex-direction: column;
   }
   .problem {
-    height: fit-content;
+    height: auto;
   }
   .problem .left-column,
   .problem .right-column {
