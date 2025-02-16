@@ -2,6 +2,7 @@
     import "./darkmode_toggle.css";
     import { onMount } from "svelte";
     import "./DarkMode.svelte";
+    import { isDark } from "$lib/themeStore";
   
     const STORAGE_KEY = "theme";
     const DARK_PREFERENCE = "(prefers-color-scheme: dark)";
@@ -18,9 +19,7 @@
     export let toggleId: string;
   
     const prefersDarkThemes = () => window.matchMedia(DARK_PREFERENCE).matches;
-  
-    let isDark: boolean = false;
-  
+    
     function toggleTheme() {
       const stored = localStorage.getItem(STORAGE_KEY);
   
@@ -44,11 +43,11 @@
       if (currentTheme === THEMES.DARK) {
         document.body.classList.remove(THEMES.LIGHT);
         document.body.classList.add(THEMES.DARK);
-        isDark = true;
+        isDark.set(true);
       } else {
         document.body.classList.remove(THEMES.DARK);
         document.body.classList.add(THEMES.LIGHT);
-        isDark = false;
+        isDark.set(false);
       }
     }
   
@@ -66,7 +65,7 @@
       // MutationObserver를 사용해 document.body의 클래스 변경을 감시
       const observer = new MutationObserver(() => {
         // body에 dark 클래스가 있는지 확인하여 isDark를 업데이트합니다.
-        isDark = document.body.classList.contains(THEMES.DARK);
+        isDark.set(document.body.classList.contains(THEMES.DARK));
       });
       observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
   
@@ -85,12 +84,12 @@
     <input
       type="checkbox"
       id={toggleId}
-      bind:checked={isDark}
+      bind:checked={$isDark}
       on:change={toggleTheme}
     />
     <label for={toggleId}>
       <span class="slider">
-        {#if isDark}
+        {#if $isDark}
           <span class="material-icons icon">nightlight_round</span>
         {:else}
           <span class="material-icons icon" style="color: #ff9e26">wb_sunny</span>

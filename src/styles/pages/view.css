@@ -317,6 +317,12 @@
   margin-left: auto;
 }
 
+/* 언어 선택 콤보박스 컨테이너 */
+.language-select {
+  position: relative;
+  display: inline-block;
+}
+
 /* 모바일: 수직 분할 */
 @media (max-width: 768px) {
   .problem .split-view {

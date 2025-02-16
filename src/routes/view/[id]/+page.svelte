@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, tick } from "svelte";
+  import { onMount, onDestroy, tick } from "svelte";
   import { navbarVisible, navbarBack } from "$lib/navbarStore";
   import { apiNeeded } from "$lib/loaderStore";
   import { goto } from "$app/navigation";
@@ -9,15 +9,17 @@
   import { diffAlt } from "$lib/difficulty";
   import { fade } from "svelte/transition";
   import Button from "../../../stories/Button.svelte";
+  import Editor from "../../../stories/Editor.svelte";
+  import type { UpdateEditor } from "../../../stories/Editor.svelte";
+  import init, { format_code } from "soj-wasm-api";
+  import LanguageSelect from "../../../stories/LanguageSelect.svelte";
+
+  let source = "";
 
   const problem_number = 1000;
   const problem_title = "쿠쿠리아 고아원의 숨바꼭질 놀이";
   const major_level = 9;
   const minor_level = 2;
-
-  // 에디터 내용 (기본 내용)
-  let codeContent = "/* 여기에 코드를 입력하세요. */";
-  $: lines = codeContent.split('\n');
 
   // 외부(left/right) splitter
   let leftWidth = 55;
@@ -72,7 +74,24 @@
     navbarVisible.set(false);
     navbarBack.set("");
     apiNeeded.set(true);
+    await init("/assets/soj_wasm_api_bg.wasm");
   });
+
+  let lang = "rs";
+
+  let prevSource = "";
+  let formattedLines: string[] = [];
+
+  function highlight(e: UpdateEditor) {
+    const { output } = e.detail;
+    output.innerHTML = format_code(source, lang);
+  }
+
+  const debouncedHighlight = highlight;
+
+  function handleLangChange(event: CustomEvent) {
+    lang = event.detail.lang;
+  }
 </script>
 
 <div class="title-bar">
@@ -152,45 +171,29 @@
 
     <div class="right-column" style="width: {100 - leftWidth}%;">
       <div class="code-area">
+        <!-- 파일 영역 (files) -->
         <div class="files" style="height: {fileAreaHeight}%;">
           <div class="file">
-            <div class="file-title">
-              {"solution.rs"}
+            <!-- 파일 제목 영역: 파일명과 언어 선택 콤보박스를 flex 컨테이너로 배치 -->
+            <div
+              class="file-title"
+              style="display: flex; justify-content: space-between; align-items: center;"
+            >
+              <div class="file-name">solution.{lang}</div>
+              <LanguageSelect bind:lang on:change={handleLangChange} />
             </div>
-            <!-- 수정된 code-block -->
+            <!-- 코드 에디터 영역 -->
             <div class="code-block">
-              <div class="code-editor">
-                <div class="line-numbers">
-                  {#each lines as _, i}
-                    <div class="line-number">{i + 1}</div>
-                  {/each}
-                </div>
-                <div
-                  class="code-content"
-                  contenteditable="true"
-                  on:keydown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      const selection = window.getSelection();
-                      if (selection && selection.rangeCount > 0) {
-                        const range = selection.getRangeAt(0);
-                        // <br> 태그 삽입
-                        const br = document.createElement("br");
-                        range.insertNode(br);
-                        // 커서를 <br> 뒤로 이동
-                        range.setStartAfter(br);
-                        range.collapse(true);
-                        selection.removeAllRanges();
-                        selection.addRange(range);
-                        // on:input 이벤트가 발생하도록 강제로 dispatch (선택사항)
-                        e.currentTarget.dispatchEvent(new Event("input"));
-                      }
-                    }
-                  }}
-                  on:input={(e) => (codeContent = e.currentTarget.innerText)}
-                  bind:innerText={codeContent}
-                ></div>
-              </div>
+              <Editor
+                on:update={debouncedHighlight}
+                bind:source
+                fontFamily="Nanum Gothic Coding"
+                fontSize="1.0rem"
+                width="100%"
+                height="100%"
+                background="#333"
+                class="my-editor"
+              />
             </div>
           </div>
         </div>
