@@ -15,6 +15,7 @@
   import LanguageSelect from "../../../stories/LanguageSelect.svelte";
 
   let source = "";
+  let isApiInit = false;
 
   const problem_number = 1000;
   const problem_title = "쿠쿠리아 고아원의 숨바꼭질 놀이";
@@ -75,6 +76,7 @@
     navbarBack.set("");
     apiNeeded.set(true);
     await init("/assets/soj_wasm_api_bg.wasm");
+    isApiInit = true;
   });
 
   let lang = "rs";
@@ -84,7 +86,8 @@
 
   function highlight(e: UpdateEditor) {
     const { output } = e.detail;
-    output.innerHTML = format_code(source, lang);
+    if (isApiInit)
+        output.innerHTML = format_code(source, lang);
   }
 
   const debouncedHighlight = highlight;
