@@ -202,16 +202,6 @@
   overflow: auto;
 }
 
-/* 코드 에디터 스타일 */
-.code-editor {
-  display: flex;
-  font-family: "Nanum Gothic Coding", monospace;
-  font-size: 14px;
-  padding: 5px;
-  overflow: auto;
-  min-height: 100px;
-}
-
 .line-numbers {
   user-select: none;
   text-align: right;
@@ -243,11 +233,11 @@
   font-weight: 400;
   line-height: 32px;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .left-column .problem-contents {
-  margin-left: 20px;
+  margin-left: 30px;
   margin-right: 20px;
 }
 
@@ -294,7 +284,6 @@
 .file .code-block {
   padding: 10px 10px;
   overflow: auto;
-  min-height: 100px;
 }
 
 .results .result-title {
@@ -346,4 +335,76 @@
   .code-splitter {
     display: none;
   }
+}
+
+.settings-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background: var(--grad1);
+  z-index: 1500;
+  border-left: 1px solid var(--border-color);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .settings-menu {
+    border-left: none;
+    width: 100%;
+  }
+}
+
+.settings-menu.open {
+  transform: translateX(0);
+}
+
+.settings-container {
+  display: flex;
+  align-items: stretch;
+  margin-top: 80px;
+  margin-left: 30px;
+}
+
+.results .horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.results .horizontal-bar {
+  border-radius: 3px;
+  width: 90%;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* 모바일 메뉴 닫기 버튼 */
+.settings-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--btext-color-white);
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.settings-menu-header {
+  display: flex;
+}
+
+.settings-container .horizontal-bar {
+  margin-left: -1.25rem;
+  flex-grow: 1;
+  flex-shrink: 0;
+  border-radius: 3px;
+  height: 1px;
+  background: #a6adce;
 }

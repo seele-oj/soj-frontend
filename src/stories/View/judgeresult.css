@@ -1,0 +1,63 @@
+@import url("../../styles/common/common.css");
+
+.judge-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 10px;
+  overflow: hidden;
+}
+
+.judge-title {
+  color: var(--htext-color);
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #0b184b;
+  font-family: "NanumSquareNeoVariable";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--htext-color);
+  width: 50px;
+}
+
+.judge-button {
+  text-align: center;
+  background: none;
+  border: none;
+  color: var(--btext-color-white);
+  background-color: #0b0b0b;
+  border: 1px solid #a6adce;
+  font-size: 24px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.judge-progress {
+    margin-left: 15px;
+    outline: 2px solid var(--progress-border-color);
+    background-color: var(--background-color);
+    border-radius: 20px;
+    width: 150px;
+    height: 20px;
+}
+
+.judge-bar {
+    background-image: var(--progress-image);
+    border-radius: 20px;
+    width: var(--progress-width);
+    height: 20px;
+}
+
+.judge-description {
+    margin-left: 10px;
+    font-family: "NanumSquareRound";
+    font-size: 18px;
+    color: var(--judgement-color);
+}

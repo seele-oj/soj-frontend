@@ -39,8 +39,6 @@
   export let padding = "1rem";
   export let padx = "0rem";
   export let pady = "1rem";
-  export let scrollThumb = "#222";
-  export let scrollTrack = "transparent";
   export let tabSize = 2;
   export let width = "100%";
 
@@ -118,8 +116,6 @@
   style:--padding={padding}
   style:--padx={padx ?? padding ?? (hideLines ? "1rem" : "0rem")}
   style:--pady={pady ?? padding}
-  style:--scrollThumb={scrollThumb}
-  style:--scrollTrack={scrollTrack}
   style:--tabSize={tabSize}
   style:--width={width}
   class:with-bg={!!background}
@@ -186,8 +182,6 @@
     top: 0;
     height: 100%;
     overflow: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollThumb) var(--scrollTrack);
   }
 
   .lines {
@@ -262,24 +256,5 @@
     border: none;
     border-radius: 0;
     outline: none;
-  }
-
-  .editor::-webkit-scrollbar {
-    width: 11px;
-    height: 11px;
-    cursor: default;
-  }
-
-  .editor::-webkit-scrollbar-thumb {
-    background-color: var(--scrollThumb);
-    border-radius: 99px;
-  }
-
-  .editor::-webkit-scrollbar-track {
-    background-color: var(--scrollTrack);
-  }
-
-  .editor::-webkit-scrollbar-corner {
-    background: var(--scrollTrack);
   }
 </style>

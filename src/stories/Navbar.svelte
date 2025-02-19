@@ -3,6 +3,7 @@
   import DarkModeToggle from "./DarkModeToggle.svelte";
   import { goto } from "$app/navigation";
   import { fade } from "svelte/transition";
+  import { isDark } from "$lib/themeStore";
 
   interface Props {
     back?: string;
@@ -28,19 +29,18 @@
 <nav class="navbar">
   <!-- 데스크탑/라지 로고 -->
   {#if back === ""}
-    <div class="is-dark-mode">
+    {#if $isDark}
       <div class="navbar-logo">
         <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
       </div>
-    </div>
-    <div class="is-not-dark-mode">
+    {:else}
       <div class="navbar-logo show-small">
         <img src="/seele-oj-logo_dark.svg" draggable="false" alt="Logo" />
       </div>
       <div class="navbar-logo show-large">
         <img src="/seele-oj-logo_bright.svg" draggable="false" alt="Logo" />
       </div>
-    </div>
+    {/if}
   {:else}
     <button class="back-button" on:click={() => goto(back)}>
       <span class="material-icons">arrow_back</span>

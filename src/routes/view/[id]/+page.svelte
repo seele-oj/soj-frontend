@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy, tick } from "svelte";
   import { navbarVisible, navbarBack } from "$lib/navbarStore";
-  import { apiNeeded } from "$lib/loaderStore";
+  import { loadFinished } from "$lib/loaderStore";
   import { goto } from "$app/navigation";
   import Difficulty from "../../../stories/Misc/Difficulty.svelte";
   import "../../../styles/pages/view.css";
@@ -11,8 +11,11 @@
   import Button from "../../../stories/Button.svelte";
   import Editor from "../../../stories/Editor.svelte";
   import type { UpdateEditor } from "../../../stories/Editor.svelte";
-  import init, { format_code } from "soj-wasm-api";
+  import init, { format_code, problem_description, render_markdown } from "soj-wasm-api";
   import LanguageSelect from "../../../stories/LanguageSelect.svelte";
+  import DarkModeToggle from "../../../stories/DarkModeToggle.svelte";
+  import JudgeResult from "../../../stories/View/JudgeResult.svelte";
+  import { Judgement } from "$lib/judgement";
 
   let source = "";
   let isApiInit = false;
@@ -70,13 +73,20 @@
     window.removeEventListener("mouseup", handleCodeMouseUp);
   }
 
+  let problem_desc = "";
+
   onMount(async () => {
-    await tick();
-    navbarVisible.set(false);
-    navbarBack.set("");
-    apiNeeded.set(true);
     await init("/assets/soj_wasm_api_bg.wasm");
     isApiInit = true;
+    problem_description(window.location.origin, 1000, (result: string | null) => {
+      if (result != null) {
+        problem_desc = render_markdown(result);
+        console.log(problem_desc);
+      }
+    });
+    loadFinished.set(true);
+    navbarVisible.set(false);
+    navbarBack.set("");
   });
 
   let lang = "rs";
@@ -86,8 +96,7 @@
 
   function highlight(e: UpdateEditor) {
     const { output } = e.detail;
-    if (isApiInit)
-        output.innerHTML = format_code(source, lang);
+    if (isApiInit) output.innerHTML = format_code(source, lang);
   }
 
   const debouncedHighlight = highlight;
@@ -95,6 +104,8 @@
   function handleLangChange(event: CustomEvent) {
     lang = event.detail.lang;
   }
+
+  let settingsOpen = false;
 </script>
 
 <div class="title-bar">
@@ -112,7 +123,7 @@
       {problem_title}
     </div>
     <div class="right">
-      <button class="title-settings">
+      <button class="title-settings" on:click={() => (settingsOpen = true)}>
         <span class="material-icons">settings</span>
       </button>
     </div>
@@ -144,22 +155,15 @@
       <div class="problem-contents">
         <Paragraph name="지문" considerDark={true}>
           <div class="description">
-            쿠쿠리아 고아원의 모두가 함께 N×M 크기의 앞마당에서 숨바꼭질을 하고
-            있어요. 놀이를 하기 위해서 술래를 정한 결과 제레가 술래로 뽑혔어요.
-            <br />
-            하지만, 제레는 혼자 드넓은 앞마당을 돌아다니기 무서워서 브로냐 언니도
-            함께 술래를 하기로 했어요. 셋.. 둘.. 하나.. 이제 쿠쿠리아 고아원의 아이들을
-            찾을 때가 왔어요.
-            <br /><br />
-            하지만 어찌된 일인지 아이들은 보이지 않았답니다. 심술궂은 신 말의 장난으로
-            아이들이 붕괴능에 의해 모두 투명하게 보이게 되었답니다. 하지만 성흔의
-            각성자이자 붕괴능 재능이 높은 제레는 최대 k번 잠시 t초 동안 투명해진
-            아이들을 볼 수 있습니다. 브로냐와 제레를 제외한 숨바꼭질에 참여하는 모든
-            아이들은 매 초마다 다음 규칙으로 이동합니다:
+            {@html problem_desc}
           </div>
         </Paragraph>
-        <Paragraph name="입력" considerDark={true}></Paragraph>
-        <Paragraph name="출력" considerDark={true}></Paragraph>
+        <Paragraph name="입력" considerDark={true}>
+          <div class="description"></div>
+        </Paragraph>
+        <Paragraph name="출력" considerDark={true}>
+          <div class="description"></div>
+        </Paragraph>
       </div>
     </div>
 
@@ -215,6 +219,16 @@
           <div class="result-title">
             {"실행 결과"}
           </div>
+          <JudgeResult id={1} judge_result={Judgement.Evaluate} progress={50} />
+          <div class="horizontal">
+            <div class="horizontal-bar">
+            </div>
+          </div>
+          <JudgeResult id={2} judge_result={Judgement.WrongAnswer} />
+          <div class="horizontal">
+            <div class="horizontal-bar">
+            </div>
+          </div>
         </div>
       </div>
       <div class="action-area">
@@ -223,5 +237,16 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="settings-menu" class:open={settingsOpen}>
+  <div class="settings-menu-header">
+    <button class="settings-menu-close" on:click={() => (settingsOpen = false)}>
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+  <div class="settings-container">
+    <DarkModeToggle toggleId="darkmode-settings" />
   </div>
 </div>

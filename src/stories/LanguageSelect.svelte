@@ -12,7 +12,7 @@
         label: string;
     }
 
-    const languages = [
+    export const languages = [
       { value: "rs", label: "Rust" },
       { value: "cpp", label: "C++" },
       { value: "c", label: "C" },

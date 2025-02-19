@@ -7,7 +7,7 @@
   import { get } from "svelte/store";
   import Loading from "./Loading.svelte";
   import Background from "./Background.svelte";
-  import { apiNeeded } from "$lib/loaderStore";
+  import { loadFinished, requireLoad } from "$lib/loaderStore";
 
   let wasmSupported: boolean = false;
   let initialized: boolean = false;
@@ -36,42 +36,48 @@
     initialized = true;
   });
 
-  let isLoaded: boolean = false;
   let isAnimationEnded: boolean = false;
 
   function handleLoaderFinished() {
-    isLoaded = true;
     isAnimationEnded = true;
-    navbarVisible.set(true);
   }
 
-  function handleReady() {
-    isLoaded = true;
-  }
+  $: isLoad = $loadFinished;
+  $: showLoad = $requireLoad;
+  $: showNavbar = $navbarVisible;
+  $: back = $navbarBack;
 </script>
 
-{#if $navbarVisible}
+{
+  console.log(showNavbar)
+}
+
+{#if showNavbar && isLoad && isAnimationEnded}
   <Navbar
-    back={$navbarBack}
+    back={back}
     navItems={["Home", "Contests", "Explore"]}
     navItemUrls={["/", "/contests", "/explore"]}
   />
 {/if}
 
-{#if wasmSupported && $apiNeeded}
+{#if wasmSupported && showLoad}
   <Background />
-
-  {#if isLoaded}
-    {#if isAnimationEnded}
-      <slot />
-    {/if}
-  {:else}
-    <Loading
-      requireAPI={$apiNeeded}
-      on:ready={handleReady}
-      on:finished={handleLoaderFinished}
-    />
+  <div class:go-show={isLoad && isAnimationEnded} class:go-no-show={!isLoad || !isAnimationEnded}>
+    <slot />
+  </div>
+  {#if !isLoad}
+    <Loading on:finished={handleLoaderFinished} />
   {/if}
 {:else if initialized}
   <slot />
 {/if}
+
+<style>
+  .go-no-show {
+    display: none;
+  }
+    
+  .go-show {
+    display: block;
+  }
+</style>

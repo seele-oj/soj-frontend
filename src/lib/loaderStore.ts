@@ -1,3 +1,4 @@
 import { writable } from 'svelte/store';
 
-export const apiNeeded = writable(false);
+export const loadFinished = writable(false);
+export const requireLoad = writable(true);

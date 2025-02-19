@@ -2,7 +2,7 @@
   import { onMount, tick } from "svelte";
   import { goto } from "$app/navigation";
   import { fade } from "svelte/transition";
-  import { apiNeeded } from "$lib/loaderStore";
+  import { loadFinished } from "$lib/loaderStore";
 
   import "../styles/common/common.css";
   import "../styles/pages/home.css";
@@ -16,10 +16,9 @@
   let searchActivated: boolean = false;
 
   onMount(async () => {
-    await tick();
     navbarVisible.set(true);
     navbarBack.set("");
-    apiNeeded.set(true);
+    loadFinished.set(true);
   });
 
   async function handleSearch(query: CustomEvent) {
