@@ -48,10 +48,6 @@
   $: back = $navbarBack;
 </script>
 
-{
-  console.log(showNavbar)
-}
-
 {#if showNavbar && isLoad && isAnimationEnded}
   <Navbar
     back={back}

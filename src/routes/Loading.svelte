@@ -7,8 +7,10 @@
   let interval: number;
 
   const dispatch = createEventDispatcher();
+  let bak = false;
 
   onMount(async () => {
+    bak = $navbarVisible;
     navbarVisible.set(false);
     interval = setInterval(() => {
       progress_level += 1;
@@ -22,6 +24,7 @@
 
   function handleOutroEnd() {
     dispatch("finished");
+    navbarVisible.set(bak);
   }
 </script>
 
