@@ -5,13 +5,13 @@
   import Footer from "../../stories/Footer.svelte";
   import SearchBar from "../../stories/SearchBar.svelte";
   import { navbarVisible, navbarBack } from "$lib/navbarStore";
-  import { apiNeeded } from "$lib/loaderStore";
+  import { loadFinished } from "$lib/loaderStore";
 
   onMount(async () => {
     await tick();
     navbarVisible.set(true);
     navbarBack.set("/");
-    apiNeeded.set(true);
+    loadFinished.set(true);
   });
 
   async function handleSearch(query: string) {}
