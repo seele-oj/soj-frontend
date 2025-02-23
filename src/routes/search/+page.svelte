@@ -2,7 +2,7 @@
   import { onMount, tick } from "svelte";
   import { fade } from "svelte/transition";
 
-  import "../../../styles/pages/search.css";
+  import "../../styles/pages/search.css";
   import Footer from "../../stories/Footer.svelte";
   import SearchBar from "../../stories/SearchBar.svelte";
   import { navbarVisible, navbarBack } from "$lib/navbarStore";

@@ -19,9 +19,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
-COPY . .
-
 RUN microdnf install -y gcc
+
+COPY . .
 
 RUN npm run wasm
 
