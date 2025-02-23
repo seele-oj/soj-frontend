@@ -8,17 +8,20 @@
   import Footer from "../../../stories/Footer.svelte";
   import SearchBar from "../../../stories/SearchBar.svelte";
   import { navbarVisible, navbarBack } from "$lib/navbarStore";
-  import { loadFinished } from "$lib/loaderStore";
+  import { loadFinished, animationEnded } from "$lib/loaderStore";
 
   onMount(async () => {
-    await tick();
     navbarVisible.set(true);
     navbarBack.set("/");
     loadFinished.set(true);
   });
 
   async function handleSearch(query: string) {}
+
+  let isAnimationEnd = $derived($animationEnded);
 </script>
+
+{#if isAnimationEnd}
 
 <div style="margin-top: 100px;">
   <div class="search-container">
@@ -28,3 +31,5 @@
     <Footer />
   </div>
 </div>
+
+{/if}

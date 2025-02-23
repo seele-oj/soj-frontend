@@ -58,11 +58,32 @@
 
   const dispatch = createEventDispatcher<{ update: UpdateEditorDetail }>();
 
+  let currentLine = 1;
+  let lineHighlightTop = 0;
+  let lineHeightValue = 0;
+
+  function updateCurrentLine() {
+    if (input) {
+      currentLine = source.slice(0, input.selectionStart).split("\n").length;
+      updateLineHighlight();
+    }
+  }
+
+  function updateLineHighlight() {
+    if (content) {
+      const style = getComputedStyle(content);
+      const lh = parseFloat(style.lineHeight);
+      lineHeightValue = lh;
+      lineHighlightTop = currentLine * lh;
+    }
+  }
+
   export const update = () => {
     if (output) {
       dispatch("update", { input, output, content, source });
       setTimeout(resizeInput, 0);
     }
+    updateCurrentLine();
   };
 
   function resizeInput() {
@@ -124,15 +145,22 @@
   {#if !hideLines}
     <ol
       class="lines {lineNumbersClass}"
-      class:with-lines-bg={!!lineNumbersBg}
       bind:clientWidth={linesWidth}
     >
       {#each range(1, lineCount) as n}
-        <li class={lineNumbersClass}>{n}</li>
+        <li
+          class="{lineNumbersClass} {n === currentLine ? 'selected-line' : ''}"
+        >
+          {n}
+        </li>
       {/each}
     </ol>
   {/if}
   <div class="editor-area">
+    <div
+      class="line-highlight"
+      style="top: {lineHighlightTop}px; height: {lineHeightValue}px;"
+    ></div>
     <textarea
       class="input {inputClass}"
       spellcheck={false}
@@ -140,6 +168,9 @@
       bind:value={source}
       on:input={update}
       on:keydown={ident}
+      on:click={updateCurrentLine}
+      on:keyup={updateCurrentLine}
+      on:keydown={updateCurrentLine}
       on:input
       on:keypress
       on:keydown
@@ -184,6 +215,12 @@
     overflow: auto;
   }
 
+  .content,
+  .input,
+  .lines {
+    line-height: 1rem;
+  }
+
   .lines {
     top: 0;
     left: 0;
@@ -200,7 +237,7 @@
     list-style-type: none;
     text-align: right;
   }
-
+  
   .lines.with-lines-bg {
     background-color: var(--lineNumbersBg);
   }
@@ -256,5 +293,20 @@
     border: none;
     border-radius: 0;
     outline: none;
+  }
+
+  /* 하이라이트 스타일 */
+  .line-highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.1); /* 라이트 모드용 */
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 다크 모드용 하이라이트 */
+  .dark .line-highlight {
+    background: rgba(255, 255, 255, 0.1);
   }
 </style>

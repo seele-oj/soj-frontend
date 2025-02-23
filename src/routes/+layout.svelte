@@ -7,7 +7,7 @@
   import { get } from "svelte/store";
   import Loading from "./Loading.svelte";
   import Background from "./Background.svelte";
-  import { loadFinished, requireLoad } from "$lib/loaderStore";
+  import { loadFinished, requireLoad, animationEnded } from "$lib/loaderStore";
 
   let wasmSupported: boolean = false;
   let initialized: boolean = false;
@@ -36,19 +36,18 @@
     initialized = true;
   });
 
-  let isAnimationEnded: boolean = false;
-
   function handleLoaderFinished() {
-    isAnimationEnded = true;
+    animationEnded.set(true);
   }
 
   $: isLoad = $loadFinished;
+  $: isAnimationEnd = $animationEnded;
   $: showLoad = $requireLoad;
   $: showNavbar = $navbarVisible;
   $: back = $navbarBack;
 </script>
 
-{#if showNavbar && isLoad && isAnimationEnded}
+{#if showNavbar && isLoad && isAnimationEnd}
   <Navbar
     back={back}
     navItems={["Home", "Contests", "Explore"]}
@@ -58,7 +57,7 @@
 
 {#if wasmSupported && showLoad}
   <Background />
-  <div class:go-show={isLoad && isAnimationEnded} class:go-no-show={!isLoad || !isAnimationEnded}>
+  <div class:go-show={isLoad && isAnimationEnd} class:go-no-show={!isLoad || !isAnimationEnd}>
     <slot />
   </div>
   {#if !isLoad}

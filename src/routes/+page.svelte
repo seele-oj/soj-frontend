@@ -2,7 +2,7 @@
   import { onMount, tick } from "svelte";
   import { goto } from "$app/navigation";
   import { fade } from "svelte/transition";
-  import { loadFinished } from "$lib/loaderStore";
+  import { loadFinished, animationEnded } from "$lib/loaderStore";
 
   import "../styles/common/common.css";
   import "../styles/pages/home.css";
@@ -10,10 +10,8 @@
   import News from "../stories/Home/News.svelte";
   import { navbarVisible, navbarBack } from "$lib/navbarStore";
   import HomeHead from "../stories/Home/HomeHead.svelte";
-  import Difficulty from "../stories/Misc/Difficulty.svelte";
 
-  let isAnimationEnded: boolean = true;
-  let searchActivated: boolean = false;
+  let searchActivated: boolean = $state(false);
 
   onMount(async () => {
     navbarVisible.set(true);
@@ -26,9 +24,13 @@
     await new Promise((resolve) => setTimeout(resolve, 500));
     goto(`/search/${query.detail}`);
   }
+
+  let isAnimationEnd = $derived($animationEnded);
 </script>
 
-<HomeHead {isAnimationEnded} on:search={handleSearch} />
+{#if isAnimationEnd}
+
+<HomeHead on:search={handleSearch} />
 
 {#if !searchActivated}
   <div style="margin-top: 500px;" out:fade>
@@ -37,4 +39,6 @@
   <div out:fade>
     <Footer />
   </div>
+{/if}
+
 {/if}

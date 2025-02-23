@@ -39,25 +39,58 @@
 
 }
 
-.judge-progress {
-    margin-left: 15px;
-    outline: 2px solid var(--progress-border-color);
-    background-color: var(--background-color);
-    border-radius: 20px;
-    width: 150px;
-    height: 20px;
-}
-
-.judge-bar {
-    background-image: var(--progress-image);
-    border-radius: 20px;
-    width: var(--progress-width);
-    height: 20px;
-}
-
 .judge-description {
     margin-left: 10px;
     font-family: "NanumSquareRound";
     font-size: 18px;
     color: var(--judgement-color);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.dark .judge-spinner {
+    width: 25px;
+    height: 25px;
+    background-image: url("/static/waiting_dark.svg");
+    background-size: 25px 25px;
+    animation: spin 2s linear infinite;
+}
+
+.light .judge-spinner {
+    width: 25px;
+    height: 25px;
+    background-image: url("/static/waiting_light.svg");
+    background-size: 25px 25px;
+    animation: spin 2s linear infinite;
+}
+
+.judge-failed {
+    width: 25px;
+    height: 25px;
+    background-image: url("/static/judge_failed.svg");
+    background-size: 25px 25px;
+}
+
+.judge-success {
+    width: 25px;
+    height: 25px;
+    background-image: url("/static/judge_success.svg");
+    background-size: 25px 25px;
+}
+
+.judge-warning {
+    width: 25px;
+    height: 25px;
+    background-image: url("/static/judge_warning.svg");
+    background-size: 25px 25px;
+}
+
+.judge-partial {
+    width: 25px;
+    height: 25px;
+    background-image: url("/static/judge_partial.svg");
+    background-size: 25px 25px;
 }

@@ -33,6 +33,17 @@ export interface JudgeInternalError {
     output: string;
 }
 
+export function mapProgressBackgroundColor(state: Judgement) {
+    switch (state) {
+        case Judgement.CompileError:
+        case Judgement.WrongAnswer:
+        case Judgement.InternalError:
+            return "#A90D0A";
+        default:
+            return "#747B9C";
+    }
+}
+
 export function mapProgressColor(state: Judgement) {
     switch (state) {
         case Judgement.CompileError:

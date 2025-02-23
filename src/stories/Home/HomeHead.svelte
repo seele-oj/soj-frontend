@@ -9,7 +9,7 @@
   interface Props {
     isAnimationEnded: boolean;
   }
-  export let isAnimationEnded: boolean = false;
+  export let isAnimationEnded: boolean = true;
 
   const dispatch = createEventDispatcher();
 

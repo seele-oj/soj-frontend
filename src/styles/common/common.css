@@ -1,4 +1,4 @@
-@import url('//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css');
+@import url("//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css");
 
 @font-face {
   font-family: "NanumSquareNeoLight";
@@ -75,8 +75,9 @@
 }
 
 @font-face {
-  font-family: 'NanumSquareRound';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+  font-family: "NanumSquareRound";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -138,7 +139,6 @@ body.light .is-not-dark-mode {
 }
 
 h1 {
-  color: var(--htext-color);
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #0b184b;
   font-family: "NanumSquareNeoVariable";
@@ -150,41 +150,70 @@ h1 {
 }
 
 h2 {
-    color: var(--htext-color);
-    -webkit-text-stroke-width: 1;
-    -webkit-text-stroke-color: #0b184b;
-    font-family: "NanumSquareNeoVariable";
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    color: var(--htext-color-white);
-  }
-  
-  h3 {
-    color: var(--htext-color);
-    -webkit-text-stroke-width: 1;
-    -webkit-text-stroke-color: #0b184b;
-    font-family: "NanumSquareNeoVariable";
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    color: var(--htext-color-white);
-  }
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #0b184b;
+  font-family: "NanumSquareNeoVariable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--htext-color-white);
+}
 
-  h4 {
-    color: var(--htext-color);
-    -webkit-text-stroke-width: 1;
-    -webkit-text-stroke-color: #0b184b;
-    font-family: "NanumSquareNeoVariable";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    color: var(--htext-color-white);
-  }
+h3 {
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #0b184b;
+  font-family: "NanumSquareNeoVariable";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--htext-color-white);
+}
 
-  body {
-    scrollbar-width: thin;
-  }
+h4 {
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #0b184b;
+  font-family: "NanumSquareNeoVariable";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--htext-color-white);
+}
+
+.markdown-body-dark h1 {
+  color: var(--htext-color);
+}
+
+.markdown-body-dark h2 {
+  color: var(--htext-color);
+}
+
+.markdown-body-dark h3 {
+  color: var(--htext-color);
+}
+
+.markdown-body-dark h4 {
+  color: var(--htext-color);
+}
+
+.markdown-body-light h1 {
+  color: var(--htext-color);
+}
+
+.markdown-body-light h2 {
+  color: var(--htext-color);
+}
+
+.markdown-body-light h3 {
+  color: var(--htext-color);
+}
+
+.markdown-body-light h4 {
+  color: var(--htext-color);
+}
+
+body {
+  scrollbar-width: thin;
+}
