@@ -31,7 +31,6 @@
     transition: transform 0.3s, background-color 0.3s;
   }
   
-  /* 슬라이더 내부의 아이콘은 아래 스타일로 중앙 정렬 */
   .slider .icon {
     display: flex;
     align-items: center;
